@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -35,5 +36,24 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onClick(View v) {
+
+
+        boolean isPressed = false;
+        R.id.image1.setOnClickListener(buttonListener);
+
+        OnClickListener buttonListener = new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isPressed) {
+                    button.setBackgroundResource(R.drawable.icon1);
+                } else {
+                    button.setBackgroundResource(R.drawable.icon2);
+                }
+                isPressed = !isPressed;
+            }
+        };
     }
 }
